@@ -1,0 +1,2028 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Antark Constructora — Empresa líder en construcción e inmobiliaria. Construimos espacios que trascienden el tiempo con innovación, calidad y visión." />
+  <meta name="keywords" content="constructora, inmobiliaria, construcción, obra, proyectos, edificios, casas, Antark" />
+  <title>Antark Constructora — Construyendo el Futuro</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='8' fill='%23e07b2a'/><text x='16' y='22' text-anchor='middle' font-size='18' font-weight='900' fill='%23000' font-family='Arial'>A</text></svg>" />
+  
+  <style>
+/* =============================================
+   ANTARK CONSTRUCTORA — DESIGN SYSTEM
+   ============================================= */
+
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@300;400;500;600;700&display=swap');
+
+/* ─── CSS Variables ─── */
+:root {
+  --clr-bg:        #0a0a0a;
+  --clr-surface:   #111111;
+  --clr-card:      #161616;
+  --clr-border:    #242424;
+  --clr-accent:    #e07b2a;
+  --clr-accent-2:  #f5a742;
+  --clr-accent-3:  #c45c10;
+  --clr-text:      #f0ece4;
+  --clr-muted:     #888888;
+  --clr-muted-2:   #555555;
+  --font-main:     'Outfit', sans-serif;
+  --font-alt:      'Space Grotesk', sans-serif;
+  --transition:    all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+  --radius:        14px;
+  --radius-lg:     24px;
+  --glow-orange:   0 0 60px rgba(224, 123, 42, 0.25);
+  --glow-soft:     0 0 100px rgba(224, 123, 42, 0.10);
+}
+
+/* ─── Reset ─── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; font-size: 16px; }
+body {
+  font-family: var(--font-main);
+  background: var(--clr-bg);
+  color: var(--clr-text);
+  overflow-x: hidden;
+  line-height: 1.6;
+}
+img { display: block; max-width: 100%; }
+a  { text-decoration: none; color: inherit; }
+ul { list-style: none; }
+button { font-family: var(--font-main); cursor: pointer; border: none; outline: none; }
+
+/* ─── Scrollbar ─── */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: var(--clr-bg); }
+::-webkit-scrollbar-thumb { background: var(--clr-accent); border-radius: 3px; }
+
+/* ─── Selection ─── */
+::selection { background: var(--clr-accent); color: #000; }
+
+/* ═══════════════════════════════════════════
+   NAVBAR
+═══════════════════════════════════════════ */
+.navbar {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 18px 60px;
+  transition: var(--transition);
+}
+.navbar.scrolled {
+  background: rgba(10,10,10,0.92);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1px solid var(--clr-border);
+  padding: 14px 60px;
+}
+.nav-logo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.nav-logo .logo-mark {
+  width: 42px; height: 42px;
+  background: linear-gradient(135deg, var(--clr-accent), var(--clr-accent-3));
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+  font-weight: 900;
+  color: #000;
+  box-shadow: var(--glow-orange);
+}
+.nav-logo .logo-text {
+  font-family: var(--font-alt);
+  font-weight: 700;
+  font-size: 1.1rem;
+  letter-spacing: 0.03em;
+}
+.nav-logo .logo-text span {
+  color: var(--clr-accent);
+}
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 36px;
+}
+.nav-links a {
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--clr-muted);
+  letter-spacing: 0.04em;
+  transition: var(--transition);
+  position: relative;
+}
+.nav-links a::after {
+  content: '';
+  position: absolute;
+  bottom: -4px; left: 0;
+  width: 0; height: 1.5px;
+  background: var(--clr-accent);
+  transition: var(--transition);
+}
+.nav-links a:hover { color: var(--clr-text); }
+.nav-links a:hover::after { width: 100%; }
+.nav-cta {
+  background: var(--clr-accent);
+  color: #000 !important;
+  padding: 10px 22px;
+  border-radius: 8px;
+  font-weight: 700 !important;
+  font-size: 0.875rem !important;
+  letter-spacing: 0.03em;
+  transition: var(--transition) !important;
+  box-shadow: 0 0 20px rgba(224,123,42,0.3);
+}
+.nav-cta:hover {
+  background: var(--clr-accent-2) !important;
+  transform: translateY(-1px);
+  box-shadow: 0 0 30px rgba(224,123,42,0.5) !important;
+}
+.nav-cta::after { display: none !important; }
+.hamburger {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  background: transparent;
+  padding: 4px;
+}
+.hamburger span {
+  display: block;
+  width: 24px; height: 2px;
+  background: var(--clr-text);
+  border-radius: 2px;
+  transition: var(--transition);
+}
+
+/* ═══════════════════════════════════════════
+   HERO SECTION
+═══════════════════════════════════════════ */
+.hero {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+  padding: 120px 60px 80px;
+}
+.hero-bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+.hero-bg-img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  opacity: 0.28;
+  filter: grayscale(20%);
+}
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    135deg,
+    rgba(10,10,10,0.95) 0%,
+    rgba(10,10,10,0.75) 50%,
+    rgba(224,123,42,0.12) 100%
+  );
+}
+.hero-grid {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(224,123,42,0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(224,123,42,0.04) 1px, transparent 1px);
+  background-size: 60px 60px;
+  z-index: 0;
+}
+.hero-content {
+  position: relative;
+  z-index: 2;
+  max-width: 900px;
+  text-align: center;
+}
+.hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(224,123,42,0.1);
+  border: 1px solid rgba(224,123,42,0.3);
+  padding: 8px 18px;
+  border-radius: 100px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--clr-accent);
+  margin-bottom: 28px;
+  animation: fadeInUp 0.6s ease forwards;
+}
+.hero-badge .dot {
+  width: 6px; height: 6px;
+  background: var(--clr-accent);
+  border-radius: 50%;
+  animation: pulse 2s infinite;
+}
+.hero-title {
+  font-family: var(--font-alt);
+  font-size: clamp(2.8rem, 6.5vw, 5.8rem);
+  font-weight: 800;
+  line-height: 1.08;
+  letter-spacing: -0.03em;
+  margin-bottom: 24px;
+  animation: fadeInUp 0.6s ease 0.1s both;
+}
+.hero-title .highlight {
+  background: linear-gradient(135deg, var(--clr-accent), var(--clr-accent-2));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  display: block;
+}
+.hero-subtitle {
+  font-size: clamp(1rem, 2vw, 1.2rem);
+  color: var(--clr-muted);
+  max-width: 650px;
+  margin: 0 auto 44px;
+  line-height: 1.8;
+  animation: fadeInUp 0.6s ease 0.2s both;
+}
+.hero-actions {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  flex-wrap: wrap;
+  animation: fadeInUp 0.6s ease 0.3s both;
+}
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: linear-gradient(135deg, var(--clr-accent), var(--clr-accent-3));
+  color: #000;
+  font-weight: 700;
+  font-size: 0.95rem;
+  padding: 16px 32px;
+  border-radius: 10px;
+  transition: var(--transition);
+  box-shadow: 0 0 30px rgba(224,123,42,0.4);
+  letter-spacing: 0.02em;
+}
+.btn-primary:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 0 50px rgba(224,123,42,0.6);
+}
+.btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: transparent;
+  color: var(--clr-text);
+  font-weight: 600;
+  font-size: 0.95rem;
+  padding: 16px 32px;
+  border-radius: 10px;
+  border: 1.5px solid var(--clr-border);
+  transition: var(--transition);
+}
+.btn-secondary:hover {
+  border-color: var(--clr-accent);
+  color: var(--clr-accent);
+  transform: translateY(-3px);
+}
+.hero-stats {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 50px;
+  margin-top: 70px;
+  padding-top: 40px;
+  border-top: 1px solid var(--clr-border);
+  animation: fadeInUp 0.6s ease 0.4s both;
+  flex-wrap: wrap;
+}
+.hero-stat .num {
+  font-family: var(--font-alt);
+  font-size: 2.6rem;
+  font-weight: 800;
+  color: var(--clr-accent);
+  line-height: 1;
+}
+.hero-stat .lbl {
+  font-size: 0.82rem;
+  color: var(--clr-muted);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  margin-top: 4px;
+}
+
+/* ═══════════════════════════════════════════
+   SECTION COMMONS
+═══════════════════════════════════════════ */
+section { padding: 100px 60px; }
+.section-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--clr-accent);
+  margin-bottom: 14px;
+}
+.section-tag::before {
+  content: '';
+  display: block;
+  width: 24px; height: 2px;
+  background: var(--clr-accent);
+  border-radius: 2px;
+}
+.section-title {
+  font-family: var(--font-alt);
+  font-size: clamp(2rem, 4vw, 3.2rem);
+  font-weight: 800;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  max-width: 700px;
+}
+.section-desc {
+  font-size: 1.05rem;
+  color: var(--clr-muted);
+  max-width: 580px;
+  line-height: 1.8;
+  margin-top: 16px;
+}
+.container { max-width: 1240px; margin: 0 auto; }
+
+/* ═══════════════════════════════════════════
+   ABOUT
+═══════════════════════════════════════════ */
+#about {
+  background: var(--clr-surface);
+  position: relative;
+  overflow: hidden;
+}
+#about::before {
+  content: '';
+  position: absolute;
+  top: -200px; right: -200px;
+  width: 500px; height: 500px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(224,123,42,0.08) 0%, transparent 70%);
+  pointer-events: none;
+}
+.about-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: center;
+}
+.about-visual {
+  position: relative;
+}
+.about-img-wrap {
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  aspect-ratio: 4/3;
+  position: relative;
+  box-shadow: 0 20px 50px rgba(0,0,0,0.6);
+}
+.about-img-wrap img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  transition: var(--transition);
+}
+.about-badge-float {
+  position: absolute;
+  bottom: -20px; right: -20px;
+  background: var(--clr-accent);
+  color: #000;
+  padding: 18px 24px;
+  border-radius: var(--radius);
+  font-weight: 800;
+  text-align: center;
+  box-shadow: var(--glow-orange);
+}
+.about-badge-float .big { font-size: 2rem; line-height: 1; }
+.about-badge-float .small { font-size: 0.75rem; letter-spacing: 0.08em; text-transform: uppercase; margin-top: 4px; }
+.about-values {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin-top: 40px;
+}
+.value-pill {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: rgba(224,123,42,0.06);
+  border: 1px solid rgba(224,123,42,0.15);
+  border-radius: var(--radius);
+  padding: 14px 18px;
+  transition: var(--transition);
+}
+.value-pill:hover {
+  background: rgba(224,123,42,0.12);
+  border-color: rgba(224,123,42,0.35);
+  transform: translateX(4px);
+}
+.value-pill .icon { font-size: 1.3rem; }
+.value-pill .text { font-size: 0.88rem; font-weight: 600; }
+
+/* ═══════════════════════════════════════════
+   SERVICES
+═══════════════════════════════════════════ */
+#services {
+  background: var(--clr-bg);
+}
+.services-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-bottom: 60px;
+  gap: 40px;
+  flex-wrap: wrap;
+}
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+.service-card {
+  background: var(--clr-card);
+  border: 1px solid var(--clr-border);
+  border-radius: var(--radius-lg);
+  padding: 40px 36px;
+  position: relative;
+  overflow: hidden;
+  transition: var(--transition);
+  cursor: default;
+}
+.service-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, var(--clr-accent), var(--clr-accent-2));
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: var(--transition);
+}
+.service-card:hover {
+  border-color: rgba(224,123,42,0.3);
+  transform: translateY(-6px);
+  box-shadow: 0 20px 60px rgba(0,0,0,0.4), var(--glow-soft);
+}
+.service-card:hover::before { transform: scaleX(1); }
+.service-icon {
+  width: 60px; height: 60px;
+  background: rgba(224,123,42,0.1);
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.8rem;
+  margin-bottom: 24px;
+  transition: var(--transition);
+}
+.service-card:hover .service-icon {
+  background: rgba(224,123,42,0.2);
+  transform: scale(1.05);
+}
+.service-card h3 {
+  font-family: var(--font-alt);
+  font-size: 1.2rem;
+  font-weight: 700;
+  margin-bottom: 12px;
+}
+.service-card p {
+  font-size: 0.92rem;
+  color: var(--clr-muted);
+  line-height: 1.8;
+}
+.service-num {
+  position: absolute;
+  bottom: 20px; right: 24px;
+  font-size: 4rem;
+  font-weight: 900;
+  color: var(--clr-border);
+  line-height: 1;
+  font-family: var(--font-alt);
+  transition: var(--transition);
+}
+.service-card:hover .service-num { color: rgba(224,123,42,0.1); }
+
+/* ═══════════════════════════════════════════
+   PROPERTIES / CASAS EN VENTA
+═══════════════════════════════════════════ */
+.properties-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
+}
+.property-card {
+  background: var(--clr-card);
+  border: 1px solid var(--clr-border);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  transition: var(--transition);
+  display: flex;
+  flex-direction: column;
+}
+.property-card:hover {
+  border-color: rgba(224,123,42,0.35);
+  transform: translateY(-8px);
+  box-shadow: 0 24px 60px rgba(0,0,0,0.5), var(--glow-soft);
+}
+.property-img-wrap {
+  position: relative;
+  aspect-ratio: 4/3;
+  overflow: hidden;
+}
+.property-img-wrap img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  transition: transform 0.55s ease;
+}
+.property-card:hover .property-img-wrap img {
+  transform: scale(1.06);
+}
+.property-badge {
+  position: absolute;
+  top: 14px; left: 14px;
+  background: rgba(10,10,10,0.82);
+  backdrop-filter: blur(8px);
+  border: 1px solid var(--clr-border);
+  color: var(--clr-text);
+  font-size: 0.78rem;
+  font-weight: 700;
+  padding: 6px 14px;
+  border-radius: 100px;
+  letter-spacing: 0.06em;
+}
+.property-badge--hot {
+  background: rgba(224,123,42,0.9);
+  color: #000;
+  border-color: var(--clr-accent);
+}
+.property-body {
+  padding: 28px;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+.property-type {
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--clr-accent);
+  margin-bottom: 8px;
+}
+.property-body h3 {
+  font-family: var(--font-alt);
+  font-size: 1.15rem;
+  font-weight: 800;
+  margin-bottom: 12px;
+  line-height: 1.35;
+}
+.property-body p {
+  font-size: 0.9rem;
+  color: var(--clr-muted);
+  line-height: 1.78;
+  margin-bottom: 20px;
+  flex: 1;
+}
+.property-features {
+  display: flex;
+  gap: 14px;
+  flex-wrap: wrap;
+  margin-bottom: 22px;
+  padding: 14px 0;
+  border-top: 1px solid var(--clr-border);
+  border-bottom: 1px solid var(--clr-border);
+}
+.property-features span {
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--clr-muted);
+}
+.btn-property {
+  display: block;
+  text-align: center;
+  padding: 13px 20px;
+  border-radius: 10px;
+  font-weight: 700;
+  font-size: 0.9rem;
+  border: 1.5px solid var(--clr-border);
+  color: var(--clr-text);
+  transition: var(--transition);
+  margin-top: 8px;
+}
+.btn-property:hover {
+  border-color: var(--clr-accent);
+  color: var(--clr-accent);
+  transform: translateY(-2px);
+}
+.btn-property--accent {
+  background: var(--clr-accent);
+  border-color: var(--clr-accent);
+  color: #000 !important;
+  box-shadow: 0 0 20px rgba(224,123,42,0.35);
+}
+.btn-property--accent:hover {
+  background: var(--clr-accent-2);
+  border-color: var(--clr-accent-2);
+  box-shadow: 0 0 35px rgba(224,123,42,0.55);
+  color: #000 !important;
+}
+
+/* ── Vista aérea ── */
+.project-aerial {
+  display: grid;
+  grid-template-columns: 1fr 1.6fr;
+  gap: 60px;
+  align-items: center;
+  background: var(--clr-card);
+  border: 1px solid var(--clr-border);
+  border-radius: var(--radius-lg);
+  padding: 52px;
+  position: relative;
+  overflow: hidden;
+}
+.project-aerial::before {
+  content: '';
+  position: absolute;
+  top: -100px; left: -100px;
+  width: 300px; height: 300px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(224,123,42,0.07) 0%, transparent 70%);
+  pointer-events: none;
+}
+.aerial-img-wrap {
+  position: relative;
+  border-radius: var(--radius);
+  overflow: hidden;
+  aspect-ratio: 16/9;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+}
+.aerial-img-wrap img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s ease;
+}
+.project-aerial:hover .aerial-img-wrap img {
+  transform: scale(1.04);
+}
+.aerial-stats {
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  display: flex;
+  justify-content: space-around;
+  background: rgba(10,10,10,0.88);
+  backdrop-filter: blur(12px);
+  padding: 14px 0;
+}
+.aerial-stat { text-align: center; }
+.astat-num {
+  display: block;
+  font-family: var(--font-alt);
+  font-size: 1.4rem;
+  font-weight: 900;
+  color: var(--clr-accent);
+  line-height: 1;
+}
+.astat-lbl {
+  display: block;
+  font-size: 0.72rem;
+  color: var(--clr-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-top: 3px;
+}
+
+/* ═══════════════════════════════════════════
+   TESTIMONIALS
+═══════════════════════════════════════════ */
+#testimonials {
+  background: var(--clr-bg);
+  overflow: hidden;
+}
+.testimonials-header { margin-bottom: 60px; }
+.testimonials-track {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+.testimonial-card {
+  background: var(--clr-card);
+  border: 1px solid var(--clr-border);
+  border-radius: var(--radius-lg);
+  padding: 36px;
+  transition: var(--transition);
+  position: relative;
+}
+.testimonial-card:hover {
+  border-color: rgba(224,123,42,0.25);
+  transform: translateY(-4px);
+}
+.stars {
+  display: flex;
+  gap: 4px;
+  margin-bottom: 18px;
+}
+.stars span { color: var(--clr-accent); font-size: 1rem; }
+.testimonial-card blockquote {
+  font-size: 0.97rem;
+  line-height: 1.85;
+  color: var(--clr-text);
+  font-style: italic;
+  margin-bottom: 24px;
+}
+.testimonial-card blockquote::before {
+  content: '"';
+  font-size: 3rem;
+  line-height: 0;
+  vertical-align: -0.6em;
+  color: var(--clr-accent);
+  font-style: normal;
+  margin-right: 4px;
+}
+.author {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+.author-avatar {
+  width: 46px; height: 46px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--clr-accent), var(--clr-accent-3));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 800;
+  font-size: 1rem;
+  color: #000;
+  flex-shrink: 0;
+}
+.author-info .name {
+  font-weight: 700;
+  font-size: 0.92rem;
+}
+.author-info .role {
+  font-size: 0.8rem;
+  color: var(--clr-muted);
+}
+
+/* ═══════════════════════════════════════════
+   PRICING
+═══════════════════════════════════════════ */
+#pricing {
+  background: var(--clr-surface);
+}
+.pricing-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  margin-top: 60px;
+}
+.pricing-card {
+  background: var(--clr-card);
+  border: 1.5px solid var(--clr-border);
+  border-radius: var(--radius-lg);
+  padding: 44px 36px;
+  transition: var(--transition);
+  position: relative;
+  overflow: hidden;
+}
+.pricing-card.popular {
+  border-color: var(--clr-accent);
+  transform: scale(1.04);
+  box-shadow: var(--glow-orange);
+}
+.pricing-card.popular::before {
+  content: 'Más Popular';
+  position: absolute;
+  top: 20px; right: -30px;
+  background: var(--clr-accent);
+  color: #000;
+  font-size: 0.72rem;
+  font-weight: 800;
+  padding: 6px 40px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  transform: rotate(45deg);
+}
+.pricing-card:hover:not(.popular) {
+  border-color: rgba(224,123,42,0.3);
+  transform: translateY(-4px);
+}
+.pricing-tier {
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--clr-accent);
+  margin-bottom: 8px;
+}
+.pricing-card h3 {
+  font-family: var(--font-alt);
+  font-size: 1.5rem;
+  font-weight: 800;
+  margin-bottom: 20px;
+}
+.price {
+  display: flex;
+  align-items: baseline;
+  gap: 6px;
+  margin-bottom: 32px;
+  padding-bottom: 32px;
+  border-bottom: 1px solid var(--clr-border);
+}
+.price .amount {
+  font-size: 3rem;
+  font-weight: 900;
+  font-family: var(--font-alt);
+  color: var(--clr-accent);
+  line-height: 1;
+}
+.price .currency {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--clr-muted);
+  align-self: flex-start;
+  padding-top: 8px;
+}
+.price .period {
+  font-size: 0.88rem;
+  color: var(--clr-muted);
+}
+.pricing-features {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  margin-bottom: 36px;
+}
+.pricing-features li {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 0.9rem;
+}
+.pricing-features li .check {
+  width: 20px; height: 20px;
+  background: rgba(224,123,42,0.15);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--clr-accent);
+  font-size: 0.7rem;
+  flex-shrink: 0;
+}
+.pricing-features li.disabled { color: var(--clr-muted-2); }
+.pricing-features li.disabled .check {
+  background: rgba(255,255,255,0.04);
+  color: var(--clr-muted-2);
+}
+.btn-pricing {
+  display: block;
+  width: 100%;
+  text-align: center;
+  padding: 14px;
+  border-radius: 10px;
+  font-weight: 700;
+  font-size: 0.92rem;
+  transition: var(--transition);
+}
+.btn-pricing-outline {
+  background: transparent;
+  border: 1.5px solid var(--clr-border);
+  color: var(--clr-text);
+}
+.btn-pricing-outline:hover {
+  border-color: var(--clr-accent);
+  color: var(--clr-accent);
+}
+.btn-pricing-solid {
+  background: var(--clr-accent);
+  color: #000;
+  box-shadow: 0 0 20px rgba(224,123,42,0.35);
+}
+.btn-pricing-solid:hover {
+  background: var(--clr-accent-2);
+  box-shadow: 0 0 35px rgba(224,123,42,0.55);
+  transform: translateY(-2px);
+}
+
+/* ═══════════════════════════════════════════
+   BLOG
+═══════════════════════════════════════════ */
+#blog {
+  background: var(--clr-bg);
+}
+.blog-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
+  margin-top: 60px;
+}
+.blog-card {
+  background: var(--clr-card);
+  border: 1px solid var(--clr-border);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  transition: var(--transition);
+}
+.blog-card:hover {
+  border-color: rgba(224,123,42,0.25);
+  transform: translateY(-5px);
+  box-shadow: 0 20px 50px rgba(0,0,0,0.35);
+}
+.blog-img {
+  aspect-ratio: 16/10;
+  overflow: hidden;
+}
+.blog-img img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+  filter: grayscale(15%);
+}
+.blog-card:hover .blog-img img {
+  transform: scale(1.05);
+  filter: grayscale(0%);
+}
+.blog-body { padding: 28px; }
+.blog-cat {
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--clr-accent);
+  margin-bottom: 10px;
+}
+.blog-body h3 {
+  font-family: var(--font-alt);
+  font-size: 1.1rem;
+  font-weight: 700;
+  line-height: 1.4;
+  margin-bottom: 12px;
+  transition: var(--transition);
+}
+.blog-card:hover .blog-body h3 { color: var(--clr-accent); }
+.blog-body p {
+  font-size: 0.88rem;
+  color: var(--clr-muted);
+  line-height: 1.75;
+  margin-bottom: 20px;
+}
+.blog-meta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 0.8rem;
+  color: var(--clr-muted-2);
+  padding-top: 16px;
+  border-top: 1px solid var(--clr-border);
+}
+.blog-meta .read-more {
+  color: var(--clr-accent);
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  transition: var(--transition);
+}
+.blog-card:hover .blog-meta .read-more { gap: 10px; }
+
+/* ═══════════════════════════════════════════
+   FAQ
+═══════════════════════════════════════════ */
+#faq {
+  background: var(--clr-surface);
+}
+.faq-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.5fr;
+  gap: 80px;
+  align-items: start;
+}
+.faq-intro { position: sticky; top: 100px; }
+.faq-intro .section-title { margin-bottom: 20px; }
+.faq-list { display: flex; flex-direction: column; gap: 12px; }
+.faq-item {
+  background: var(--clr-card);
+  border: 1px solid var(--clr-border);
+  border-radius: var(--radius);
+  overflow: hidden;
+  transition: var(--transition);
+}
+.faq-item.open { border-color: rgba(224,123,42,0.35); }
+.faq-question {
+  width: 100%;
+  background: transparent;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 22px 26px;
+  text-align: left;
+  font-size: 0.97rem;
+  font-weight: 600;
+  color: var(--clr-text);
+  gap: 16px;
+  transition: var(--transition);
+}
+.faq-question:hover { color: var(--clr-accent); }
+.faq-chevron {
+  flex-shrink: 0;
+  width: 28px; height: 28px;
+  border-radius: 50%;
+  border: 1.5px solid var(--clr-border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.9rem;
+  transition: var(--transition);
+  color: var(--clr-muted);
+}
+.faq-item.open .faq-chevron {
+  background: var(--clr-accent);
+  border-color: var(--clr-accent);
+  color: #000;
+  transform: rotate(45deg);
+}
+.faq-answer {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s cubic-bezier(0.4,0,0.2,1);
+}
+.faq-answer-inner {
+  padding: 0 26px 22px;
+  font-size: 0.92rem;
+  color: var(--clr-muted);
+  line-height: 1.85;
+}
+.faq-item.open .faq-answer { max-height: 300px; }
+
+/* ═══════════════════════════════════════════
+   CONTACT
+═══════════════════════════════════════════ */
+#contact {
+  background: var(--clr-bg);
+}
+.contact-wrapper {
+  display: grid;
+  grid-template-columns: 1fr 1.4fr;
+  gap: 80px;
+  align-items: start;
+}
+.contact-info .section-title { margin-bottom: 18px; }
+.contact-info .section-desc { margin-bottom: 48px; }
+.contact-items {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+.contact-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 18px;
+}
+.contact-item-icon {
+  width: 48px; height: 48px;
+  background: rgba(224,123,42,0.1);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.3rem;
+  flex-shrink: 0;
+  border: 1px solid rgba(224,123,42,0.15);
+}
+.contact-item-text .label {
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--clr-accent);
+  margin-bottom: 4px;
+}
+.contact-item-text .value {
+  font-size: 0.97rem;
+  color: var(--clr-text);
+}
+.contact-form {
+  background: var(--clr-card);
+  border: 1px solid var(--clr-border);
+  border-radius: var(--radius-lg);
+  padding: 48px;
+}
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 18px;
+  margin-bottom: 18px;
+}
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 18px;
+}
+.form-group label {
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--clr-muted);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+.form-group input,
+.form-group select,
+.form-group textarea {
+  background: var(--clr-surface);
+  border: 1.5px solid var(--clr-border);
+  border-radius: 10px;
+  padding: 14px 18px;
+  color: var(--clr-text);
+  font-family: var(--font-main);
+  font-size: 0.95rem;
+  transition: var(--transition);
+  width: 100%;
+  appearance: none;
+}
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: var(--clr-accent);
+  box-shadow: 0 0 0 3px rgba(224,123,42,0.12);
+}
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+  color: var(--clr-muted-2);
+}
+.form-group select option { background: var(--clr-surface); }
+.form-group textarea { resize: vertical; min-height: 120px; }
+.btn-submit {
+  width: 100%;
+  padding: 16px;
+  background: linear-gradient(135deg, var(--clr-accent), var(--clr-accent-3));
+  color: #000;
+  font-weight: 800;
+  font-size: 1rem;
+  border-radius: 10px;
+  transition: var(--transition);
+  box-shadow: 0 0 25px rgba(224,123,42,0.35);
+  letter-spacing: 0.02em;
+}
+.btn-submit:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 0 40px rgba(224,123,42,0.55);
+}
+
+/* ═══════════════════════════════════════════
+   FOOTER
+═══════════════════════════════════════════ */
+.footer {
+  background: #070707;
+  border-top: 1px solid var(--clr-border);
+  padding: 70px 60px 30px;
+}
+.footer-top {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr;
+  gap: 60px;
+  margin-bottom: 60px;
+}
+.footer-brand .nav-logo { margin-bottom: 18px; }
+.footer-brand p {
+  font-size: 0.88rem;
+  color: var(--clr-muted);
+  line-height: 1.8;
+  max-width: 280px;
+  margin-bottom: 24px;
+}
+.social-links { display: flex; gap: 12px; }
+.social-link {
+  width: 40px; height: 40px;
+  background: var(--clr-card);
+  border: 1px solid var(--clr-border);
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1rem;
+  transition: var(--transition);
+}
+.social-link:hover {
+  background: var(--clr-accent);
+  border-color: var(--clr-accent);
+  transform: translateY(-3px);
+}
+.footer-col h4 {
+  font-size: 0.88rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--clr-text);
+  margin-bottom: 20px;
+}
+.footer-col ul { display: flex; flex-direction: column; gap: 12px; }
+.footer-col ul li a {
+  font-size: 0.88rem;
+  color: var(--clr-muted);
+  transition: var(--transition);
+}
+.footer-col ul li a:hover {
+  color: var(--clr-accent);
+  padding-left: 6px;
+}
+.footer-bottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 30px;
+  border-top: 1px solid var(--clr-border);
+  font-size: 0.82rem;
+  color: var(--clr-muted-2);
+  flex-wrap: wrap;
+  gap: 12px;
+}
+.footer-bottom a { color: var(--clr-accent); }
+
+/* ═══════════════════════════════════════════
+   ANIMATIONS
+═══════════════════════════════════════════ */
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes pulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50%       { opacity: 0.6; transform: scale(0.85); }
+}
+.reveal {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ═══════════════════════════════════════════
+   RESPONSIVE
+═══════════════════════════════════════════ */
+@media (max-width: 1024px) {
+  .navbar { padding: 18px 30px; }
+  .navbar.scrolled { padding: 14px 30px; }
+  section { padding: 80px 30px; }
+  .footer { padding: 60px 30px 30px; }
+  .hero { padding: 120px 30px 80px; }
+  .services-grid,
+  .testimonials-track,
+  .pricing-grid,
+  .blog-grid { grid-template-columns: 1fr 1fr; }
+  .about-grid { gap: 40px; }
+  .footer-top { grid-template-columns: 1fr 1fr; gap: 40px; }
+  .faq-grid { grid-template-columns: 1fr; }
+  .faq-intro { position: static; }
+  .contact-wrapper { grid-template-columns: 1fr; }
+  .properties-grid { grid-template-columns: 1fr 1fr; }
+  .project-aerial { grid-template-columns: 1fr; gap: 32px; padding: 36px; }
+}
+@media (max-width: 768px) {
+  .nav-links { display: none; }
+  .hamburger { display: flex; }
+  .nav-links.open {
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    inset: 0;
+    top: 70px;
+    background: rgba(10,10,10,0.98);
+    padding: 50px 30px;
+    gap: 28px;
+    backdrop-filter: blur(20px);
+  }
+  .nav-links.open a { font-size: 1.3rem; color: var(--clr-text); }
+  .hero-stats { gap: 30px; flex-wrap: wrap; }
+  .about-grid { grid-template-columns: 1fr; }
+  .about-badge-float { right: 0; }
+  .services-grid,
+  .testimonials-track,
+  .pricing-grid,
+  .blog-grid { grid-template-columns: 1fr; }
+  .pricing-card.popular { transform: scale(1); }
+  .form-row { grid-template-columns: 1fr; }
+  .footer-top { grid-template-columns: 1fr; }
+  .services-header { flex-direction: column; }
+  .about-values { grid-template-columns: 1fr; }
+  .hero-title { font-size: 2.8rem; }
+  .contact-form { padding: 28px; }
+  .properties-grid { grid-template-columns: 1fr; }
+  .project-aerial { padding: 24px; gap: 24px; }
+  .aerial-stats { position: static; flex-direction: row; padding: 16px; margin-top: 16px; border-radius: var(--radius); background: rgba(10,10,10,0.7); }
+  .aerial-img-wrap { aspect-ratio: 16/10; }
+}
+  </style>
+</head>
+<body>
+
+<!-- ══════════════════════════════════════
+     NAVBAR
+══════════════════════════════════════ -->
+<nav class="navbar" id="navbar" role="navigation" aria-label="Menú principal">
+  <a href="#hero" class="nav-logo" aria-label="Antark Constructora - Inicio">
+    <div class="logo-mark">A</div>
+    <div class="logo-text"><span>ANTARK</span> Constructora</div>
+  </a>
+  <ul class="nav-links" id="nav-links" role="list">
+    <li><a href="#about">Nosotros</a></li>
+    <li><a href="#services">Servicios</a></li>
+    <li><a href="#portfolio">Propiedades</a></li>
+    <li><a href="#testimonials">Testimonios</a></li>
+    <li><a href="#pricing">Precios</a></li>
+    <li><a href="#blog">Blog</a></li>
+    <li><a href="#contact" class="nav-cta">Cotizar Proyecto</a></li>
+  </ul>
+  <button class="hamburger" id="hamburger" aria-label="Abrir menú" aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<!-- ══════════════════════════════════════
+     HERO
+══════════════════════════════════════ -->
+<section class="hero" id="hero" aria-label="Sección principal">
+  <div class="hero-bg">
+    <img src="vista-aerea.jpg" alt="Vista aérea del proyecto residencial Antark" class="hero-bg-img" id="hero-img" />
+    <div class="hero-overlay"></div>
+  </div>
+  <div class="hero-grid"></div>
+  <div class="hero-content">
+    <div class="hero-badge">
+      <span class="dot"></span>
+      Empresa certificada — Construcción e Inmobiliaria
+    </div>
+    <h1 class="hero-title">
+      Construimos<br />
+      <span class="highlight">Espacios que<br />Inspiran</span>
+    </h1>
+    <p class="hero-subtitle">
+      En Antark Constructora transformamos visiones en realidad. Proyectos residenciales modernos con acabados de primera calidad y diseño de vanguardia.
+    </p>
+    <div class="hero-actions">
+      <a href="#portfolio" class="btn-primary" id="hero-portfolio-btn">
+        Ver Casas en Venta
+        <span>→</span>
+      </a>
+      <a href="#contact" class="btn-secondary" id="hero-contact-btn">
+        Solicitar Cotización
+        <span>↗</span>
+      </a>
+    </div>
+    <div class="hero-stats">
+      <div class="hero-stat">
+        <div class="num">15+</div>
+        <div class="lbl">Años de Experiencia</div>
+      </div>
+      <div class="hero-stat">
+        <div class="num">300+</div>
+        <div class="lbl">Casas Construidas</div>
+      </div>
+      <div class="hero-stat">
+        <div class="num">98%</div>
+        <div class="lbl">Clientes Satisfechos</div>
+      </div>
+      <div class="hero-stat">
+        <div class="num">3</div>
+        <div class="lbl">Modelos Disponibles</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════
+     ABOUT
+══════════════════════════════════════ -->
+<section id="about" aria-labelledby="about-title">
+  <div class="container about-grid">
+    <div class="about-visual reveal">
+      <div class="about-img-wrap">
+        <img src="vista-aerea.jpg" alt="Vista aérea del proyecto residencial Antark Constructora" id="about-img" />
+      </div>
+      <div class="about-badge-float">
+        <div class="big">15+</div>
+        <div class="small">Años de<br/>Confianza</div>
+      </div>
+    </div>
+    <div class="about-text reveal">
+      <span class="section-tag">Quiénes Somos</span>
+      <h2 class="section-title" id="about-title">Una empresa con<br/>visión de futuro</h2>
+      <p class="section-desc">
+        Antark Constructora nació con la misión de redefinir los estándares en la industria de la construcción y el desarrollo inmobiliario. Combinamos ingeniería sólida con diseño contemporáneo para crear hogares seguros y estéticos.
+      </p>
+      <p class="section-desc" style="margin-top:16px;">
+        Nuestro equipo multidisciplinar trabaja con un propósito común: entregar viviendas de máxima calidad con entrega puntual y total transparencia en cada etapa.
+      </p>
+      <div class="about-values">
+        <div class="value-pill">
+          <span class="icon">🏆</span>
+          <span class="text">Excelencia en Calidad</span>
+        </div>
+        <div class="value-pill">
+          <span class="icon">⚡</span>
+          <span class="text">Entrega Puntual</span>
+        </div>
+        <div class="value-pill">
+          <span class="icon">🌿</span>
+          <span class="text">Construcción Sólida</span>
+        </div>
+        <div class="value-pill">
+          <span class="icon">🔒</span>
+          <span class="text">Garantía Estructural</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════
+     SERVICES
+══════════════════════════════════════ -->
+<section id="services" aria-labelledby="services-title">
+  <div class="container">
+    <div class="services-header">
+      <div class="reveal">
+        <span class="section-tag">Lo que hacemos</span>
+        <h2 class="section-title" id="services-title">Servicios de<br/>Construcción Integral</h2>
+      </div>
+      <p class="section-desc reveal" style="max-width:360px;">
+        Soluciones completas para proyectos habitacionales e inmobiliarios.
+      </p>
+    </div>
+    <div class="services-grid">
+      <div class="service-card reveal">
+        <div class="service-icon">🏗️</div>
+        <h3>Construcción Residencial</h3>
+        <p>Viviendas unifamiliares y conjuntos residenciales que combinan confort, estética y durabilidad excepcional.</p>
+        <div class="service-num">01</div>
+      </div>
+      <div class="service-card reveal" style="transition-delay:0.1s">
+        <div class="service-icon">🏢</div>
+        <h3>Proyectos Comerciales</h3>
+        <p>Edificaciones comerciales y locales diseñados para maximizar la funcionalidad y el retorno de inversión.</p>
+        <div class="service-num">02</div>
+      </div>
+      <div class="service-card reveal" style="transition-delay:0.2s">
+        <div class="service-icon">🏠</div>
+        <h3>Remodelación y Ampliación</h3>
+        <p>Transformamos espacios existentes modernizando y agregando valor real a tu propiedad.</p>
+        <div class="service-num">03</div>
+      </div>
+      <div class="service-card reveal">
+        <div class="service-icon">🏘️</div>
+        <h3>Desarrollo Inmobiliario</h3>
+        <p>Urbanización completa: trazado, servicios básicos, cimentación y entrega llave en mano.</p>
+        <div class="service-num">04</div>
+      </div>
+      <div class="service-card reveal" style="transition-delay:0.1s">
+        <div class="service-icon">📐</div>
+        <h3>Diseño Arquitectónico</h3>
+        <p>Planos funcionales y modernos adaptados a cada necesidad y estilo de vida.</p>
+        <div class="service-num">05</div>
+      </div>
+      <div class="service-card reveal" style="transition-delay:0.2s">
+        <div class="service-icon">🌍</div>
+        <h3>Supervisión de Obra</h3>
+        <p>Control riguroso de calidad en materiales, procesos y cronogramas de construcción.</p>
+        <div class="service-num">06</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════
+     PROPIEDADES EN VENTA
+══════════════════════════════════════ -->
+<section id="portfolio" aria-labelledby="portfolio-title" style="background: var(--clr-bg);">
+  <div class="container">
+    <div style="text-align:center; margin-bottom:14px;" class="reveal">
+      <span class="section-tag" style="justify-content:center;">Propiedades Disponibles</span>
+      <h2 class="section-title" id="portfolio-title" style="max-width:100%; text-align:center;">Casas en venta<br/>listas para ti</h2>
+      <p class="section-desc" style="margin: 14px auto 48px; text-align:center;">Elige el modelo que mejor se adapta a tu familia. Todas nuestras propiedades cuentan con acabados de calidad y garantía constructiva.</p>
+    </div>
+
+    <!-- Tarjetas de propiedades -->
+    <div class="properties-grid reveal" id="portfolio-grid">
+
+      <!-- Propiedad 1 -->
+      <div class="property-card">
+        <div class="property-img-wrap">
+          <img src="casa-blanca-roja.jpg" alt="Casa modelo Bicolor — Antark Constructora" />
+          <div class="property-badge">🏷️ En Venta</div>
+        </div>
+        <div class="property-body">
+          <div class="property-type">Modelo Bicolor</div>
+          <h3>Casa Planta Baja — Modelo A</h3>
+          <p>Vivienda de planta baja con fachada bicolor moderna, puerta de madera maciza y ventanería amplia. Ideal para parejas y familias pequeñas.</p>
+          <div class="property-features">
+            <span>🛏 2 Recámaras</span>
+            <span>🚿 1 Baño</span>
+            <span>📐 ~60 m²</span>
+          </div>
+          <a href="#contact" class="btn-property" id="prop-1-btn">Consultar Precio →</a>
+        </div>
+      </div>
+
+      <!-- Propiedad 2 -->
+      <div class="property-card">
+        <div class="property-img-wrap">
+          <img src="casas-azules.jpg" alt="Casas modelo Azul — Antark Constructora" />
+          <div class="property-badge">🏷️ En Venta</div>
+        </div>
+        <div class="property-body">
+          <div class="property-type">Modelo Azul</div>
+          <h3>Casa Planta Baja — Modelo B</h3>
+          <p>Conjunto de casas con llamativa fachada azul y blanco, puertas de madera con acabado premium. Diseño vibrante y funcional.</p>
+          <div class="property-features">
+            <span>🛏 2 Recámaras</span>
+            <span>🚿 1 Baño</span>
+            <span>📐 ~65 m²</span>
+          </div>
+          <a href="#contact" class="btn-property" id="prop-2-btn">Consultar Precio →</a>
+        </div>
+      </div>
+
+      <!-- Propiedad 3 -->
+      <div class="property-card">
+        <div class="property-img-wrap">
+          <img src="casa-roja-2pisos.jpg" alt="Casa modelo Rojo 2 pisos — Antark Constructora" />
+          <div class="property-badge property-badge--hot">🔥 Más Popular</div>
+        </div>
+        <div class="property-body">
+          <div class="property-type">Modelo Rojo Premium</div>
+          <h3>Casa de Dos Plantas — Modelo C</h3>
+          <p>Residencia de dos niveles con fachada roja y ventanería de piso a techo. Mayor espacio, doble altura y privacidad para familias.</p>
+          <div class="property-features">
+            <span>🛏 3 Recámaras</span>
+            <span>🚿 2 Baños</span>
+            <span>📐 ~120 m²</span>
+          </div>
+          <a href="#contact" class="btn-property btn-property--accent" id="prop-3-btn">Consultar Precio →</a>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Vista aérea del conjunto -->
+    <div class="project-aerial reveal" style="margin-top:60px;">
+      <div class="aerial-label">
+        <span class="section-tag" style="margin-bottom:8px;">El Proyecto Completo</span>
+        <h3 style="font-family:var(--font-alt); font-size:1.6rem; font-weight:800; margin-bottom:10px;">Un proyecto de gran escala</h3>
+        <p style="color:var(--clr-muted); font-size:0.95rem; line-height:1.8; max-width:420px;">Más de 300 viviendas distribuidas en un amplio terreno con calles pavimentadas, servicios completos y áreas planificadas.</p>
+        <a href="#contact" class="btn-primary" style="display:inline-flex; margin-top:24px; font-size:0.88rem; padding:14px 26px;" id="aerial-contact-btn">Solicitar Información →</a>
+      </div>
+      <div class="aerial-img-wrap">
+        <img src="vista-aerea.jpg" alt="Vista aérea del conjunto residencial Antark" />
+        <div class="aerial-stats">
+          <div class="aerial-stat"><span class="astat-num">300+</span><span class="astat-lbl">Casas</span></div>
+          <div class="aerial-stat"><span class="astat-num">3</span><span class="astat-lbl">Modelos</span></div>
+          <div class="aerial-stat"><span class="astat-num">100%</span><span class="astat-lbl">Infraestructura</span></div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════
+     TESTIMONIALS
+══════════════════════════════════════ -->
+<section id="testimonials" aria-labelledby="testimonials-title">
+  <div class="container">
+    <div class="testimonials-header reveal">
+      <span class="section-tag">Lo que dicen</span>
+      <h2 class="section-title" id="testimonials-title">Clientes que confían<br/>en nosotros</h2>
+    </div>
+    <div class="testimonials-track">
+      <div class="testimonial-card reveal">
+        <div class="stars">
+          <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
+        </div>
+        <blockquote>Compramos nuestra casa con Antark y el proceso fue transparente y rápido. La casa está muy bien construida y los acabados son excelentes.</blockquote>
+        <div class="author">
+          <div class="author-avatar">CR</div>
+          <div class="author-info">
+            <div class="name">Carlos Rodríguez</div>
+            <div class="role">Propietario Modelo A</div>
+          </div>
+        </div>
+      </div>
+      <div class="testimonial-card reveal" style="transition-delay:0.1s">
+        <div class="stars">
+          <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
+        </div>
+        <blockquote>Elegimos el modelo de dos pisos y ha sido la mejor decisión para nuestra familia. Espacios cómodos, iluminados y muy buena atención post-venta.</blockquote>
+        <div class="author">
+          <div class="author-avatar">ML</div>
+          <div class="author-info">
+            <div class="name">María López</div>
+            <div class="role">Propietaria Modelo C</div>
+          </div>
+        </div>
+      </div>
+      <div class="testimonial-card reveal" style="transition-delay:0.2s">
+        <div class="stars">
+          <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
+        </div>
+        <blockquote>Excelente relación calidad-precio. El proyecto en conjunto tiene muy buena proyección y plusvalía.</blockquote>
+        <div class="author">
+          <div class="author-avatar">JP</div>
+          <div class="author-info">
+            <div class="name">Juan Pablo Herrera</div>
+            <div class="role">Inversionista</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════
+     PRICING
+══════════════════════════════════════ -->
+<section id="pricing" aria-labelledby="pricing-title">
+  <div class="container">
+    <div style="text-align:center;" class="reveal">
+      <span class="section-tag" style="justify-content:center;">Planes y Costos</span>
+      <h2 class="section-title" id="pricing-title" style="max-width:100%; text-align:center;">Inversión accesible<br/>y garantizada</h2>
+      <p class="section-desc" style="margin: 14px auto 0; text-align:center;">Facilidades de pago y opciones de crédito directo o bancario.</p>
+    </div>
+    <div class="pricing-grid">
+      <div class="pricing-card reveal">
+        <div class="pricing-tier">Básico</div>
+        <h3>Modelo A (Bicolor)</h3>
+        <div class="price">
+          <span class="currency">$</span>
+          <span class="amount">65K</span>
+          <span class="period">USD desde</span>
+        </div>
+        <ul class="pricing-features">
+          <li><span class="check">✓</span> 1 Planta · ~60 m²</li>
+          <li><span class="check">✓</span> 2 Habitaciones, 1 Baño</li>
+          <li><span class="check">✓</span> Acabados en fachada bicolor</li>
+          <li><span class="check">✓</span> Garantía de construcción</li>
+          <li class="disabled"><span class="check">—</span> 2 Plantas</li>
+        </ul>
+        <a href="#contact" class="btn-pricing btn-pricing-outline" id="plan-basic-btn">Consultar</a>
+      </div>
+      <div class="pricing-card popular reveal" style="transition-delay:0.1s">
+        <div class="pricing-tier">Destacado</div>
+        <h3>Modelo B (Azul)</h3>
+        <div class="price">
+          <span class="currency">$</span>
+          <span class="amount">72K</span>
+          <span class="period">USD desde</span>
+        </div>
+        <ul class="pricing-features">
+          <li><span class="check">✓</span> 1 Planta · ~65 m²</li>
+          <li><span class="check">✓</span> 2 Habitaciones, 1 Baño</li>
+          <li><span class="check">✓</span> Fachada azul contemporánea</li>
+          <li><span class="check">✓</span> Puerta de madera maciza</li>
+          <li class="disabled"><span class="check">—</span> 2 Plantas</li>
+        </ul>
+        <a href="#contact" class="btn-pricing btn-pricing-solid" id="plan-premium-btn">Cotizar Ahora</a>
+      </div>
+      <div class="pricing-card reveal" style="transition-delay:0.2s">
+        <div class="pricing-tier">Familiar</div>
+        <h3>Modelo C (Dos Pisos)</h3>
+        <div class="price">
+          <span class="currency">$</span>
+          <span class="amount">110K</span>
+          <span class="period">USD desde</span>
+        </div>
+        <ul class="pricing-features">
+          <li><span class="check">✓</span> 2 Plantas · ~120 m²</li>
+          <li><span class="check">✓</span> 3 Habitaciones, 2 Baños</li>
+          <li><span class="check">✓</span> Ventanales piso a techo</li>
+          <li><span class="check">✓</span> Mayor amplitud y privacidad</li>
+          <li><span class="check">✓</span> Garantía extendida</li>
+        </ul>
+        <a href="#contact" class="btn-pricing btn-pricing-outline" id="plan-elite-btn">Cotizar Modelo C</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════
+     BLOG
+══════════════════════════════════════ -->
+<section id="blog" aria-labelledby="blog-title">
+  <div class="container">
+    <div class="reveal" style="display:flex; justify-content:space-between; align-items:flex-end; margin-bottom:0; flex-wrap:wrap; gap:24px;">
+      <div>
+        <span class="section-tag">Noticias & Artículos</span>
+        <h2 class="section-title" id="blog-title">Consejos e<br/>información inmobiliaria</h2>
+      </div>
+    </div>
+    <div class="blog-grid">
+      <div class="blog-card reveal">
+        <div class="blog-img">
+          <img src="blog-1.jpg" alt="Tendencias en construcción" />
+        </div>
+        <div class="blog-body">
+          <div class="blog-cat">Guía de Compra</div>
+          <h3>5 pasos clave antes de adquirir tu primera casa</h3>
+          <p>Revisa qué aspectos estructurales, legales y de ubicación debes verificar antes de tomar una decisión.</p>
+          <div class="blog-meta">
+            <span>12 Ago, 2025</span>
+            <a href="#contact" class="read-more">Más info <span>→</span></a>
+          </div>
+        </div>
+      </div>
+      <div class="blog-card reveal" style="transition-delay:0.1s">
+        <div class="blog-img">
+          <img src="blog-2.jpg" alt="Planificación urbana" />
+        </div>
+        <div class="blog-body">
+          <div class="blog-cat">Plusvalía</div>
+          <h3>Por qué los proyectos residenciales planificados ganan valor</h3>
+          <p>La infraestructura, los accesos y la calidad constructiva multiplican el valor de tu propiedad con el tiempo.</p>
+          <div class="blog-meta">
+            <span>28 Jul, 2025</span>
+            <a href="#contact" class="read-more">Más info <span>→</span></a>
+          </div>
+        </div>
+      </div>
+      <div class="blog-card reveal" style="transition-delay:0.2s">
+        <div class="blog-img">
+          <img src="blog-3.jpg" alt="Tecnología en construcción" />
+        </div>
+        <div class="blog-body">
+          <div class="blog-cat">Construcción</div>
+          <h3>Calidad en cimientos y materiales para mayor durabilidad</h3>
+          <p>Conoce los estándares que aplicamos en cada metro cuadrado para garantizar la solidez de tu hogar.</p>
+          <div class="blog-meta">
+            <span>10 Jul, 2025</span>
+            <a href="#contact" class="read-more">Más info <span>→</span></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════
+     FAQ
+══════════════════════════════════════ -->
+<section id="faq" aria-labelledby="faq-title">
+  <div class="container faq-grid">
+    <div class="faq-intro reveal">
+      <span class="section-tag">Preguntas Frecuentes</span>
+      <h2 class="section-title" id="faq-title">Respondemos<br/>tus dudas</h2>
+      <p class="section-desc">¿Tienes preguntas sobre el proyecto o las opciones de compra? Escríbenos.</p>
+      <a href="#contact" class="btn-primary" style="display:inline-flex; margin-top:32px; font-size:0.9rem; padding:14px 28px;" id="faq-contact-btn">Hablar con un asesor →</a>
+    </div>
+    <div class="faq-list reveal">
+      <div class="faq-item open" id="faq-1">
+        <button class="faq-question" onclick="toggleFaq('faq-1')" aria-expanded="true">
+          ¿Las casas cuentan con todos los servicios básicos?
+          <span class="faq-chevron">+</span>
+        </button>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">Sí, todas las propiedades cuentan con acometida de agua potable, energía eléctrica, alcantarillado y preparación para servicios de telecomunicaciones.</div>
+        </div>
+      </div>
+      <div class="faq-item" id="faq-2">
+        <button class="faq-question" onclick="toggleFaq('faq-2')" aria-expanded="false">
+          ¿Qué formas de pago o financiamiento aceptan?
+          <span class="faq-chevron">+</span>
+        </button>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">Aceptamos pago de contado, planes de financiamiento directo en cuotas y créditos hipotecarios con las principales entidades bancarias.</div>
+        </div>
+      </div>
+      <div class="faq-item" id="faq-3">
+        <button class="faq-question" onclick="toggleFaq('faq-3')" aria-expanded="false">
+          ¿Puedo agendar una visita al proyecto?
+          <span class="faq-chevron">+</span>
+        </button>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">¡Por supuesto! Puedes contactarnos mediante el formulario o por teléfono para coordinar un recorrido guiado por el conjunto y ver las casas muestra.</div>
+        </div>
+      </div>
+      <div class="faq-item" id="faq-4">
+        <button class="faq-question" onclick="toggleFaq('faq-4')" aria-expanded="false">
+          ¿Qué garantía ofrece Antark Constructora?
+          <span class="faq-chevron">+</span>
+        </button>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">Ofrecemos garantía estructural completa y garantía en instalaciones hidráulicas y eléctricas, respaldada por contrato.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════
+     CONTACT
+══════════════════════════════════════ -->
+<section id="contact" aria-labelledby="contact-title">
+  <div class="container contact-wrapper">
+    <div class="contact-info reveal">
+      <span class="section-tag">Contáctanos</span>
+      <h2 class="section-title" id="contact-title">¿Interesado en adquirir<br/>tu nueva casa?</h2>
+      <p class="section-desc">Déjanos tus datos o contáctanos directamente para brindarte información detallada de disponibilidad y precios.</p>
+      <div class="contact-items">
+        <div class="contact-item">
+          <div class="contact-item-icon">📍</div>
+          <div class="contact-item-text">
+            <div class="label">Ubicación</div>
+            <div class="value">Oficinas y Sala de Ventas en el Proyecto</div>
+          </div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-item-icon">📞</div>
+          <div class="contact-item-text">
+            <div class="label">Teléfono / WhatsApp</div>
+            <div class="value">+1 (555) 100-2000</div>
+          </div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-item-icon">✉️</div>
+          <div class="contact-item-text">
+            <div class="label">Email</div>
+            <div class="value">ventas@antarkconstructora.com</div>
+          </div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-item-icon">🕐</div>
+          <div class="contact-item-text">
+            <div class="label">Horario de Atención</div>
+            <div class="value">Lun – Sáb: 8:00 am – 6:00 pm</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="contact-form reveal" style="transition-delay:0.15s">
+      <form id="contact-form" onsubmit="submitForm(event)" novalidate>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="name">Nombre completo</label>
+            <input type="text" id="name" name="name" placeholder="Tu nombre" required />
+          </div>
+          <div class="form-group">
+            <label for="email">Correo electrónico</label>
+            <input type="email" id="email" name="email" placeholder="tucorreo@ejemplo.com" required />
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="phone">Teléfono / WhatsApp</label>
+            <input type="tel" id="phone" name="phone" placeholder="+51 999 000 000" />
+          </div>
+          <div class="form-group">
+            <label for="service">Modelo de interés</label>
+            <select id="service" name="service">
+              <option value="">Selecciona un modelo</option>
+              <option value="modelo-a">Casa Planta Baja — Modelo A (Bicolor)</option>
+              <option value="modelo-b">Casa Planta Baja — Modelo B (Azul)</option>
+              <option value="modelo-c">Casa Dos Plantas — Modelo C (Rojo)</option>
+              <option value="otro">Información General del Proyecto</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="message">Mensaje o consulta</label>
+          <textarea id="message" name="message" placeholder="¿Deseas agendar una visita o consultar planes de financiamiento?"></textarea>
+        </div>
+        <button type="submit" class="btn-submit" id="submit-btn">
+          Enviar Mensaje ✉️
+        </button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════
+     FOOTER
+══════════════════════════════════════ -->
+<footer class="footer" role="contentinfo">
+  <div class="footer-top">
+    <div class="footer-brand">
+      <div class="nav-logo">
+        <div class="logo-mark">A</div>
+        <div class="logo-text"><span>ANTARK</span> Constructora</div>
+      </div>
+      <p>Construimos hogares modernos con ingeniería de excelencia y compromiso con tu familia.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Modelos</h4>
+      <ul>
+        <li><a href="#portfolio">Modelo A (Bicolor)</a></li>
+        <li><a href="#portfolio">Modelo B (Azul)</a></li>
+        <li><a href="#portfolio">Modelo C (Dos Pisos)</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Empresa</h4>
+      <ul>
+        <li><a href="#about">Quiénes Somos</a></li>
+        <li><a href="#services">Servicios</a></li>
+        <li><a href="#testimonials">Testimonios</a></li>
+        <li><a href="#pricing">Precios</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Contacto</h4>
+      <ul>
+        <li><a href="#contact">Solicitar Visita</a></li>
+        <li><a href="#contact">Cotizaciones</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2025 Antark Constructora. Todos los derechos reservados.</span>
+  </div>
+</footer>
+
+<!-- ══════════════════════════════════════
+     JAVASCRIPT
+══════════════════════════════════════ -->
+<script>
+// Navbar scroll effect
+const navbar = document.getElementById('navbar');
+window.addEventListener('scroll', () => {
+  navbar.classList.toggle('scrolled', window.scrollY > 40);
+});
+
+// Mobile menu
+const hamburger = document.getElementById('hamburger');
+const navLinks  = document.getElementById('nav-links');
+hamburger.addEventListener('click', () => {
+  const isOpen = navLinks.classList.toggle('open');
+  hamburger.setAttribute('aria-expanded', isOpen);
+});
+navLinks.querySelectorAll('a').forEach(a => {
+  a.addEventListener('click', () => {
+    navLinks.classList.remove('open');
+    hamburger.setAttribute('aria-expanded', 'false');
+  });
+});
+
+// Scroll reveal
+const reveals = document.querySelectorAll('.reveal');
+const revealObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+      revealObserver.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.12 });
+reveals.forEach(el => revealObserver.observe(el));
+
+// FAQ accordion
+function toggleFaq(id) {
+  const item = document.getElementById(id);
+  const isOpen = item.classList.contains('open');
+  document.querySelectorAll('.faq-item').forEach(i => {
+    i.classList.remove('open');
+    i.querySelector('.faq-question').setAttribute('aria-expanded', 'false');
+  });
+  if (!isOpen) {
+    item.classList.add('open');
+    item.querySelector('.faq-question').setAttribute('aria-expanded', 'true');
+  }
+}
+
+// Form submit
+function submitForm(e) {
+  e.preventDefault();
+  const btn = document.getElementById('submit-btn');
+  btn.textContent = '✅ Mensaje enviado con éxito';
+  btn.style.background = '#2d9e5f';
+  btn.disabled = true;
+  setTimeout(() => {
+    btn.textContent = 'Enviar Mensaje ✉️';
+    btn.style.background = '';
+    btn.disabled = false;
+    document.getElementById('contact-form').reset();
+  }, 4000);
+}
+</script>
+</body>
+</html>
